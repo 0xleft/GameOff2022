@@ -22,17 +22,18 @@ public class PlayerController : MonoBehaviour
     void Update(){
 
         // if player on the wall it is a glitch where he will just float when huggin the wall
-        if (!onWall()){
             // move player on the x axis
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal")*playerSpeed,rb.velocity.y);
-        }
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal")*playerSpeed,rb.velocity.y);
         
+        if (onWall() && !isGrounded()){ // we should call on wall animation TODO make so you are able to jump of the wall
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
         if (Input.GetKey(KeyCode.Space)){
             if (isGrounded()){
                 rb.velocity = new Vector2(rb.velocity.x, playerJumpHeight); // apply vertical velocity;
             }
         }
-
     }
 
     // check if player is on the ground 
