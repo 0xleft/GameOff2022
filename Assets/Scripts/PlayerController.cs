@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
 
     void Update(){
 
-        //make player move on the x axes
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal")*playerSpeed,rb.velocity.y);
-
+        // if player on the wall it is a glitch where he will just float when huggin the wall
+        if (!onWall()){
+            // move player on the x axis
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal")*playerSpeed,rb.velocity.y);
+        }
         
         if (Input.GetKey(KeyCode.Space)){
             if (isGrounded()){
@@ -33,8 +35,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // check if player is on the ground 
     private bool isGrounded(){
-        RaycastHit2D raycast = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.down, 0.1f, levelLayer); // raycast down to check if player is standing on something;    NOTE layer mask is the layer that it will recognise when it is being hit
+        RaycastHit2D raycast = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.down, 0.4f, levelLayer); //NOTE layer mask is the layer that it will recognise when it is being hit
         return raycast.collider != null;
+    }
+
+    // check if player is huggin a wall
+    private bool onWall(){
+        // check left side
+        RaycastHit2D raycast = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.left, 0.05f, levelLayer);
+        if (raycast.collider != null){
+            return raycast.collider;
+        }
+        // check right side
+        return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.right, 0.05f, levelLayer).collider != null; // 
     }
 }
