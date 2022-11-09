@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UIs/USS/mainMenu.uss?fileID=7433441132597879392&amp;guid=d8a301e815e4d83458e9378dee98a08d&amp;type=3#mainMenu" />
+    <ui:VisualElement name="Root" style="width: 100%; height: 100%; background-color: rgb(48, 48, 48); -unity-background-image-tint-color: rgba(56, 56, 56, 0.29); align-items: center; font-size: 30px;">
+        <ui:VisualElement name="Logo" style="height: 30%; justify-content: center; width: 50%; padding-right: 0; padding-top: 0; align-items: auto; left: auto; translate: 0 0; background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhochristmas.png?fileID=2800000&amp;guid=08c91a7677e66844281a99aaf6ea36f1&amp;type=3#d_stevejobsbuhochristmas&apos;);" />
+        <ui:VisualElement name="Items" style="flex-grow: 1; width: 60%; padding-top: 40px;">
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="StartButton" class="menu-button" style="width: 100%; height: 20%;" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" name="OptionsButton" class="menu-button" style="-unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;);" />
+            <ui:VisualElement name="OptionsContainer" style="justify-content: flex-start; -unity-background-scale-mode: stretch-to-fill; transform-origin: center;">
+                <ui:SliderInt picking-mode="Ignore" label="Volume" value="67" high-value="100" name="VolumeSlider" inverted="false" page-size="0" show-input-field="false" direction="Horizontal" class="menu-slider" style="color: rgb(85, 255, 201); flex-direction: column; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 20px; -unity-text-align: upper-left; white-space: normal; align-items: center; justify-content: space-around; flex-wrap: nowrap; flex-grow: 1; word-spacing: 0; letter-spacing: 0; -unity-paragraph-spacing: 0; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; -unity-background-scale-mode: stretch-to-fill; scale: 1 1; flex-shrink: 0; opacity: 1; display: flex; visibility: visible; overflow: visible;" />
+            </ui:VisualElement>
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="QuitButton" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
