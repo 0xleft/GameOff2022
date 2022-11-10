@@ -12,14 +12,12 @@ public class CameraController : MonoBehaviour
     
     void Start(){
         rb = GetComponent<Rigidbody2D>();
-        // get the offset so it doesnt center on a player but stays the same as the start
-        cameraOffset = player.transform.position - transform.position;
     }
 
 
     void Update(){
         // the point where the camera has to go to.
-        Vector2 cameraGoal = new Vector2(player.transform.position.x + cameraOffset.x, player.transform.position.y + cameraOffset.y);
+        Vector2 cameraGoal = new Vector2(player.transform.position.x, player.transform.position.y);
         // set camera velocity to that point so it moves there.
         rb.velocity = new Vector2((cameraGoal.x - transform.position.x)*cameraSpeed, 
                                   (cameraGoal.y - transform.position.y)*cameraSpeed);
