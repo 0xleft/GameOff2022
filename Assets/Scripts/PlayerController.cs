@@ -94,7 +94,8 @@ public class PlayerController : MonoBehaviour
     // check if player is on the ground 
     private bool isGrounded(){
         //NOTE layer mask is the layer that it will recognise when it is being hit
-        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.6f, levelLayer).collider != null;
+        // leave the wall doulbe jump as a feature
+        return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.down, 0.6f, levelLayer).collider != null;
     }
 
     // check if player is huggin left wall

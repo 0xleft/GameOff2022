@@ -13,7 +13,6 @@ public class CameraController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
     void Update(){
         // the point where the camera has to go to.
         Vector2 cameraGoal = new Vector2(player.transform.position.x, player.transform.position.y);

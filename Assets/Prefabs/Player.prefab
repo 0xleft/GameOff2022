@@ -99,11 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6d345467e37464db99da255f43fbaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerJumpHeight: 10
+  playerSpeed: 11.27
+  playerJumpHeight: 14.6
   levelLayer:
     serializedVersion: 2
     m_Bits: 8
+  currentLevel: 0
+  gravityBoostDelay: 0.118
+  gravityBoostAmount: 3.28
 --- !u!50 &4792273214497856985
 Rigidbody2D:
   serializedVersion: 4
