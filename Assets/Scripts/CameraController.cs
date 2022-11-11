@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    private Vector2 cameraOffset;
     private Rigidbody2D rb;
     public float cameraSpeed = 5; // camera sensitivity on both axes. NOTE we can split it later so it is different speed on diff axes.
                                   // 5 is optimal in my opinion
