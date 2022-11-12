@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
             currentLevel = Convert.ToInt32(currentScene.Substring(currentScene.Length-1, 1)); // will work until 9 levels
             Debug.Log("CURRENT LEVEL"+currentLevel);
         } catch (FormatException) {
-            Debug.Log("Level does not have a number at the end");
+            Debug.Log("Level does not have a number at the end...Consider adding one");
         } catch (OverflowException) {
             Debug.Log("Nuber is too big to fit in int32");
         }
@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
         // apply gravity boost
         if (!isGrounded() && !appliedGravityBoost){
             if (timeSinceJump > gravityBoostDelay){
-                Debug.Log("BOOST");
                 timeSinceJump = 0;
                 appliedGravityBoost = true;
                 rb.gravityScale += gravityBoostAmount;
@@ -86,7 +85,6 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll) {
         // if it touched the goal
         if (coll.collider.tag == "Goal"){
-            Debug.Log("Level up");
             SceneManager.LoadScene("Level-"+(currentLevel+1)); // next level
         }
     }
@@ -95,7 +93,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded(){
         //NOTE layer mask is the layer that it will recognise when it is being hit
         // leave the wall doulbe jump as a feature
-        return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.down, 0.6f, levelLayer).collider != null;
+        return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,  Vector2.down, 0.1f, levelLayer).collider != null;
     }
 
     // check if player is huggin left wall
